@@ -1,0 +1,92 @@
+.Header {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-gap: 1px;
+}
+
+.headerItem {
+  width:100px;
+  text-align: center;
+}
+
+.Calendar {
+  display: grid;
+  grid-template-rows: 50px 500px;
+  grid-gap: 1px;
+  background-color: black;
+}
+
+.CalendarBody {
+  width: 600;
+  height: 900;
+  display: grid;
+  grid-auto-columns: 50px;
+  grid-auto-rows: 500px;
+}
+
+.Day {
+  width: 100;
+  height: 800;
+  display: grid;
+  grid-auto-rows: 50px;
+  grid-auto-columns: 100px;
+  grid-gap: 1px;
+  background-color: black;
+}
+
+/* .tableWrapper {
+  table-layout: fixed;
+  display: table;
+  width: 100%;
+} */
+
+/* .classListBody {
+  height: 400px;
+  width: 100%;
+  display: block;
+  overflow-y: scroll;
+  text-align: left;
+  position: absolute;
+} */
+
+.cell {
+  width: 100;
+  height : 50;
+  text-align: center;
+}
+/* 
+.Calendar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 70%;
+  margin: 30px;
+} */
+
+/* .Cell {
+  border: 1px solid black;
+  flex: 1;
+  width: 50;
+  height: 50;
+  font-size: 20px;
+  text-align: center;
+} */
+
+/* .Day {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+   
+} */
+
+/* .CalendarBody {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  height:600;
+} */
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

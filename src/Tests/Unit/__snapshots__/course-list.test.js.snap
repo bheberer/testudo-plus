@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`course list integration tests renders correctly 1`] = `
+<CourseList
+  classes={
+    Object {
+      "root": "CourseList-root-1",
+      "subHeader": "CourseList-subHeader-2",
+    }
+  }
+  courses={
+    Array [
+      "CMSC131",
+      "MATH140",
+      "UNIV100",
+      "ASTR100",
+    ]
+  }
+/>
+`;

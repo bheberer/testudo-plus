@@ -1,0 +1,27 @@
+/* table tbody { display:block; max-height:400px; overflow-y:scroll; overflow-x:hidden }
+table thead, table tbody tr { display:block; width:100%; table-layout:fixed; } */
+
+.tableWrapper table > tbody {
+  height: 400px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.tableWrapper table > thead,
+.tableWrapper table > tbody,
+.tableWrapper table > td,
+.tableWrapper table > th {
+  display: block;
+}
+
+.tableWrapper table > tr:after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+
+.tableWrapper table > tbody td,
+.tableWrapper table > thead > tr > th {
+  float: left;
+}
