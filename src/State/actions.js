@@ -28,9 +28,9 @@ export const selectItem = makeConditionalActionCreator({
 )
 
 export const deselectItem = makeConditionalActionCreator({
-  departments: 'DSELECT_DEPARTMENT',
-  credits: 'DSELECT_CREDIT',
-  genEds: 'DSELECT_GENED'
+  departments: 'DESELECT_DEPARTMENT',
+  credits: 'DESELECT_CREDIT',
+  genEds: 'DESELECT_GENED'
 })
 
 export const fetchCourses = () => {
