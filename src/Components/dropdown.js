@@ -32,11 +32,10 @@ export const Dropdown = (props) => {
   return (
     <form>
       <FormControl>
-        <InputLabel htmlFor="select-multiple">{ props.id }</InputLabel>
+        <InputLabel>{ props.id }</InputLabel>
         <Select 
           onChange={ handleOnChange } 
-          value={ props.selectedItems }
-          input={ <Input id='select-multiple' /> }
+          value=''
           className={ classes.dropdown }
         >
           { renderItems(props.items) }
