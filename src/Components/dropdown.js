@@ -38,7 +38,6 @@ export const Dropdown = (props) => {
           value={ props.selectedItems }
           input={ <Input id='select-multiple' /> }
           className={ classes.dropdown }
-          multiple
         >
           { renderItems(props.items) }
         </Select>
