@@ -23,17 +23,17 @@ const CourseList = (props) => {
 
   const { classes } = props;
 
+  const handleNextPageClick = () => props.goToNextPage(props.page);
+  const handlePrevPageClick = () => props.goToPrevPage(props.page);
+
   const renderCourses = () =>
     props.courses.map(course =>
-      <ListItem dense button>
-        <ListItemText primary={ `${course.course_id}: ${course.name}` } />
+      <ListItem dense button onClick={ () => props.selectCourse(course) }>
+        <ListItemText primary={ course.course_id } secondary={ course.name }/>
       </ListItem>
     );
   
   const courses = renderCourses();
-
-  const handleNextPageClick = () => props.goToNextPage(props.page);
-  const handlePrevPageClick = () => props.goToPrevPage(props.page);
 
   return (
     <Paper>

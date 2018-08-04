@@ -15,7 +15,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     goToNextPage: (page) => dispatch(actions.goToNextPage(page)),
-    goToPrevPage: (page) => dispatch(actions.goToPrevPage(page))
+    goToPrevPage: (page) => dispatch(actions.goToPrevPage(page)),
+    selectCourse: (course) => dispatch(actions.selectCourse(course))
   }
 }
 
