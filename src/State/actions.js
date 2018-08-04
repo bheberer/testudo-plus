@@ -10,7 +10,7 @@ export const makeSimpleAcionCreator = (type) =>
     makeAction(type, data);
 
 export const makeConditionalActionCreator = (conditions) =>
-  (data, conditional) => {
+  (conditional, data) => {
     const matchedType = conditions[conditional];
     return makeAction(matchedType, data);
   }
@@ -20,12 +20,17 @@ export const clickCourse = (courseId) => ({
   payload: courseId
 })
 
+export const clearItems = makeConditionalActionCreator({
+  departments: 'CLEAR_SELECTED_DEPARTMENTS',
+  credits: 'CLEAR_SELECTED_CREDITS',
+  genEds: 'CLEAR_SELECTED_GENEDS'
+})
+
 export const selectItem = makeConditionalActionCreator({
-    departments: 'SELECT_DEPARTMENT',
-    credits: 'SELECT_CREDIT',
-    genEds: 'SELECT_GENED'
-  }
-)
+  departments: 'SELECT_DEPARTMENT',
+  credits: 'SELECT_CREDIT',
+  genEds: 'SELECT_GENED'
+})
 
 export const deselectItem = makeConditionalActionCreator({
   departments: 'DESELECT_DEPARTMENT',

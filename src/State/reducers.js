@@ -34,17 +34,20 @@ export const selectedCourse = createReducer('', {
 
 export const selectedDepartments = createReducer([], {
   ['SELECT_DEPARTMENT']: (state, action) => [...state, action.payload],
-  ['DESELECT_DEPARTMENT']: (state, action) => state.filter(department => department !== action.payload)
+  ['DESELECT_DEPARTMENT']: (state, action) => state.filter(department => department !== action.payload),
+  ['CLEAR_SELECTED_DEPARTMENTS']: (state, action) => []
 })
 
 export const selectedCredits = createReducer([], {
   ['SELECT_CREDIT']: (state, action) => [...state, action.payload],
-  ['DESELECT_CREDIT']: (state, action) => state.filter(credit => credit !== action.payload)
+  ['DESELECT_CREDIT']: (state, action) => state.filter(credit => credit !== action.payload),
+  ['CLEAR_SELECTED_CREDITS']: (state, action) => []
 })
 
 export const selectedGenEds= createReducer([], {
   ['SELECT_GENED']: (state, action) => [...state, action.payload],
-  ['DESELECT_GENED']: (state, action) => state.filter(genEd => genEd !== action.payload)
+  ['DESELECT_GENED']: (state, action) => state.filter(genEd => genEd !== action.payload),
+  ['CLEAR_SELECTED_GENEDS']: (state, action) => []
 })
 
 export const courses = createReducer([], {
