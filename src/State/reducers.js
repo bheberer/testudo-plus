@@ -28,8 +28,8 @@ export const createReducer = (initialState, actionHandlers) =>
 //       actionHandlers[action.type](state, action) :
 //       state
 
-export const selectedCourse = createReducer('', {
-  ['CLICK_COURSE']: (state, action) => action.payload
+export const selectedCourse = createReducer({}, {
+  ['SELECT_COURSE']: (state, action) => action.payload
 })
 
 export const selectedDepartments = createReducer([], {
