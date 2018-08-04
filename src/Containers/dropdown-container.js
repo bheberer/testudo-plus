@@ -7,10 +7,10 @@ import constants from '../constants';
 const getItems = (id) =>
   constants[id];
 
-const mapStateToProps = (state, props) => {
-  return {items: getItems(props.id),
-  selectedItems: getSelectedItems(state, props)}
-}
+const mapStateToProps = (state, props) => ({
+  items: getItems(props.id),
+  selectedItems: getSelectedItems(state, props)
+})
 
 const mapDispatchToProps = (dispatch) => ({
   selectItem: (item, dropdownId) => dispatch(selectItem(item, dropdownId)),

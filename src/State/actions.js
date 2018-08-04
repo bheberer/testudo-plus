@@ -15,9 +15,9 @@ export const makeConditionalActionCreator = (conditions) =>
     return makeAction(matchedType, data);
   }
 
-export const clickCourse = (courseId) => ({
-  type: 'CLICK_COURSE',
-  payload: courseId
+export const selectCourse = (course) => ({
+  type: 'SELECT_COURSE',
+  payload: course
 })
 
 export const clearItems = makeConditionalActionCreator({
@@ -42,7 +42,7 @@ export const fetchCourses = () => {
   return (dispatch) => {
     let page = 1;
     while (page <= 47) {
-      axios.get(`https://api.umd.io/v0/courses?page=${page}&per_page=100`)
+      axios.get(`https://api.umd.io/v0/courses?page=${page}&per_page=100&expand=sections`)
       .then(res => { return res.data })
       .then(courses => dispatch(coursesFetched(courses)));
       page++;
