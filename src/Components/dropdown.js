@@ -6,6 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import FormControl from '@material-ui/core/FormControl';
 import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
+import { compose, pure } from 'recompose';
 
 const styles = (theme) => ({
   dropdown: {
@@ -16,6 +17,11 @@ const styles = (theme) => ({
     height: 30
   }
 });
+
+const enhance = compose(
+  withStyles(styles),
+  pure
+)
 
 export const Dropdown = (props) => {
 
@@ -29,9 +35,9 @@ export const Dropdown = (props) => {
   const handleClear = () => props.clearItems(props.id);
 
   const renderItems = (items) => {
-    return (items.map(item => 
+    return (items.map(item =>
       <MenuItem value={ item }>{ item }</MenuItem>
-    ))
+    ));
   };
 
   return (
@@ -51,6 +57,6 @@ export const Dropdown = (props) => {
       </IconButton>
     </form>
   );
-}
+};
 
-export default withStyles(styles)(Dropdown);
+export default enhance(Dropdown);

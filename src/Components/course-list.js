@@ -8,16 +8,22 @@ import ListSubHeader from '@material-ui/core/ListSubheader';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { withStyles } from '@material-ui/core/styles';
+import { pure, compose } from 'recompose';
 
 const styles = (theme) => ({
   root: {
     overflow: 'auto',
-    maxHeight: 300
+    maxHeight: 500
   },
   subHeader: {
     backgroundColor: 'white'
   }
 })
+
+const enhance = compose(
+  withStyles(styles),
+  pure
+)
 
 const CourseList = (props) => {
 
@@ -53,4 +59,4 @@ const CourseList = (props) => {
   );
 }
 
-export default withStyles(styles)(CourseList);
+export default enhance(CourseList);

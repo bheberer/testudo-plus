@@ -5,16 +5,10 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { shouldUpdate } from 'recompose';
+import { days, hours } from '../constants';
 
 const Calendar = () => {
-
-  const days = ['', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-
-  const hours = [
-    '8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM','12:00 PM',
-    '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM',
-    '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM'
-  ];
 
   const renderHeader = days.map(day =>
     <TableCell className='headerItem' key={ day }>{ day }</TableCell>
@@ -47,4 +41,4 @@ const Calendar = () => {
   );
 }
 
-export default Calendar;
+export default shouldUpdate(() => false)(Calendar);
