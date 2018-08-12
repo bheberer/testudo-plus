@@ -6,6 +6,7 @@ import CourseList from './Containers/course-list-container';
 import NavBar from './Components/nav-bar';
 import SearchBarContainer from './Containers/search-bar-container';
 import Dropdown from './Containers/dropdown-container';
+import CourseModal from './Containers/modal-container';
 import Calendar from './Components/calendar';
 import Grid from '@material-ui/core/Grid';
 
@@ -40,6 +41,7 @@ class App extends Component {
             <CourseList id='courseList'/>
           </Grid>
         </Grid>
+        <CourseModal />
       </div>
     );
   }

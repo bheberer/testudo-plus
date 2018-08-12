@@ -1,11 +1,12 @@
 import axios from "axios";
+import thunk from 'redux-thunk';
 
 const makeAction = (type, payload) => ({ 
   type, 
-  payload 
+  payload
 });
 
-export const makeSimpleAcionCreator = (type) =>
+export const makeSimpleActionCreator = (type) =>
   (data) => 
     makeAction(type, data);
 
@@ -13,12 +14,27 @@ export const makeConditionalActionCreator = (conditions) =>
   (conditional, data) => {
     const matchedType = conditions[conditional];
     return makeAction(matchedType, data);
-  }
+  };
 
-export const selectCourse = (course) => ({
-  type: 'SELECT_COURSE',
-  payload: course
-})
+export const selectCourse = (course) =>
+  (dispatch) => {
+    dispatch(makeAction('SELECT_COURSE', course));
+    dispatch(openModal(true));
+  };
+
+export const selectSection = (section) =>
+  (dispatch) => {
+    dispatch(makeAction('SELECT_SECTION', section));
+    dispatch(closeModal(false));
+  };
+
+export const openModal = makeSimpleActionCreator('OPEN_MODAL');
+
+export const closeModal = makeSimpleActionCreator('CLOSE_MODAL');
+
+export const coursesFetched = makeSimpleActionCreator('FETCHED_COURSES');
+
+export const searchQueryUpdate = makeSimpleActionCreator('UPDATED_SEARCH_QUERY');
 
 export const clearItems = makeConditionalActionCreator({
   departments: 'CLEAR_SELECTED_DEPARTMENTS',
@@ -50,25 +66,16 @@ export const fetchCourses = () => {
   }
 }
 
-export const coursesFetched = (courses) => ({
-  type: 'FETCHED_COURSES',
-  payload: courses
-})
-
-export const searchQueryUpdate = (searchQuery) => ({
-  type: 'UPDATED_SEARCH_QUERY',
-  payload: searchQuery
-})
-
-export const goToNextPage = (page) => ({
-  type: 'NEXT_PAGE',
-  payload: page + 1
-})
+export const goToNextPage = (page) =>
+  makeAction(
+    'NEXT_PAGE',
+    page + 1
+  )
 
 export const goToPrevPage = (page) => {
   const pageNumber = page === 0 ? 0 : page - 1;
-  return {
-    type: 'PREV_PAGE',
-    payload: pageNumber
-  }
+  return makeAction(
+    'PREV_PAGE',
+    pageNumber
+  )
 }

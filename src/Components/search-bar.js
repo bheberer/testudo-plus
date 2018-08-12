@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
+import { pure, compose } from 'recompose';
 
 const styles = (theme) => ({
   searchBar: {
@@ -8,13 +9,19 @@ const styles = (theme) => ({
   }
 })
 
-export class SearchBar extends Component {
-  render() {
-    const { classes } = this.props;
+const enhance = compose(
+  withStyles(styles),
+  pure
+)
+
+const SearchBar = (props)  => {
+
+    const { classes } = props;
+
     return (
       <form>
         <TextField 
-          onChange={ this.props.onChange } 
+          onChange={ props.onChange } 
           label='Search for courses...' 
           margin='normal'
           className={ classes.searchBar }
@@ -22,7 +29,5 @@ export class SearchBar extends Component {
       </form>
     )
   }
-}
 
-export default withStyles(styles)(SearchBar);
-
+export default enhance(SearchBar);
